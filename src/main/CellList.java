@@ -9,7 +9,7 @@ public class CellList extends HashMap<Coordinate, Cell> {
     public Coordinate getLeftTopCoordinate() {
         Coordinate leftTop = new Coordinate(0, 0);
         for (Coordinate coordinate : this.keySet()) {
-            if(coordinate.compareTo(leftTop) == -1) leftTop = coordinate;
+            leftTop = coordinate.compareTo(leftTop) == -1 ? coordinate : leftTop;
         };
         return leftTop;
     }
@@ -17,7 +17,7 @@ public class CellList extends HashMap<Coordinate, Cell> {
     public Coordinate getRightBottomCoordinate() {
         Coordinate rightBottom = new Coordinate(0, 0);
         for (Coordinate coordinate : this.keySet()) {
-            if(coordinate.compareTo(rightBottom) == 1) rightBottom = coordinate;
+            rightBottom = coordinate.compareTo(rightBottom) == 1 ? coordinate : rightBottom;
         };
         return rightBottom;
     }

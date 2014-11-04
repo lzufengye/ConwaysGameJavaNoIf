@@ -46,26 +46,6 @@ public class LiveEnvironmentTest {
     }
 
     @Test
-    public void shouldTestIfBoundNeedExpand() throws Exception {
-        CellState[][] initialState = {
-                {X, X, X},
-                {X, O, X},
-                {X, X, X}
-        };
-        LiveEnvironment liveEnvironment = new LiveEnvironment(initialState);
-        HashMap<String, Boolean> boundExpanded = new HashMap<String, Boolean>();
-        boundExpanded.put("TOP", true);
-        boundExpanded.put("BOTTOM", true);
-        boundExpanded.put("LEFT", true);
-        boundExpanded.put("RIGHT", true);
-
-        liveEnvironment.boundExpand();
-
-        assertEquals(boundExpanded, liveEnvironment.boundExpand());
-    }
-
-
-    @Test
     public void shouldGetNextCellsStateAfterTickConsideringInfiniteBounds() throws Exception {
         CellState[][] initialState = {
                 {X, X, X},
