@@ -82,7 +82,7 @@ public class LiveEnvironment {
     }
 
     public void expandTopRightPoint() {
-        cells.put(new Coordinate(rightBottom.getX() + 1, leftTop.getY() -1), new Cell(CellState.DEAD));
+        cells.put(new Coordinate(leftTop.getX() - 1, rightBottom.getY() +1), new Cell(CellState.DEAD));
     }
 
     public void expandTopLeftPoint() {
@@ -90,26 +90,26 @@ public class LiveEnvironment {
     }
 
     public void expandLeft() {
-        for(int row = leftTop.getY(); row < rightBottom.getY(); row++) {
-            cells.put(new Coordinate(row + 1, leftTop.getX() -1), new Cell(CellState.DEAD));
+        for(int row = leftTop.getX(); row <= rightBottom.getX(); row++) {
+            cells.put(new Coordinate(row, leftTop.getY() -1), new Cell(CellState.DEAD));
         }
     }
 
     public void expandRight() {
-        for(int row = leftTop.getY(); row < rightBottom.getY(); row++) {
-            cells.put(new Coordinate(row + 1, rightBottom.getX() +1), new Cell(CellState.DEAD));
+        for(int row = leftTop.getX(); row <= rightBottom.getX(); row++) {
+            cells.put(new Coordinate(row, rightBottom.getY() +1), new Cell(CellState.DEAD));
         }
     }
 
     public void expandTop() {
-        for(int col = leftTop.getX(); col < rightBottom.getX(); col++) {
-            cells.put(new Coordinate(leftTop.getY()-1, col), new Cell(CellState.DEAD));
+        for(int col = leftTop.getY(); col <= rightBottom.getY(); col++) {
+            cells.put(new Coordinate(leftTop.getX()-1, col), new Cell(CellState.DEAD));
         }
     }
 
     public void expandBottom() {
-        for(int col = leftTop.getX(); col < rightBottom.getX(); col++) {
-            cells.put(new Coordinate(rightBottom.getY() + 1, col), new Cell(CellState.DEAD));
+        for(int col = leftTop.getY(); col <= rightBottom.getY(); col++) {
+            cells.put(new Coordinate(rightBottom.getX() + 1, col), new Cell(CellState.DEAD));
         }
     }
 
